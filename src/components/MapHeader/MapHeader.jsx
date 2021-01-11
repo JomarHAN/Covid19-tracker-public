@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./MapHeader.css";
 import SwitchUs from "./SwitchUs";
-import LoadWorldData from "../../tasks/LoadWorldTasks";
+import LoadWorldTasks from "../../tasks/LoadWorldTasks";
 import CardType from "../CardType/CardType";
 import numeral from "numeral";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,10 +17,10 @@ function MapHeader() {
   const isUsa = useSelector(selectIsUsa);
   const countryCovid = useSelector(selectCountryCovid);
 
-  const loadWorldData = new LoadWorldData();
+  const loadWorldData = new LoadWorldTasks();
   const loadUsTasks = new LoadUsTasks();
 
-  const loadCardData = () => {
+  const loadWorldCard = () => {
     if (countryCovid === "Worldwide") {
       loadWorldData.loadWorldData(setUpdate);
     } else {
@@ -34,7 +34,7 @@ function MapHeader() {
 
   useEffect(() => {
     if (!isUsa) {
-      loadCardData();
+      loadWorldCard();
     } else {
       loadUsCard();
     }

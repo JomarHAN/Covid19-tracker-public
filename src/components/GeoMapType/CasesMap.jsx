@@ -97,7 +97,7 @@ function CasesMap({ region, setHover }) {
 
         countryDispatch(
           setCountryCovid({
-            countryCovid: countryProperties.countryInfo.country,
+            countryCovid: countryProperties.country,
           })
         );
       }
