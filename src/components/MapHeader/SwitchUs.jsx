@@ -7,7 +7,8 @@ import {
 import { blue } from "@material-ui/core/colors";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-// import { setIsUsa } from "./features/usaSlice";
+import { setIsUsa } from "../../features/usaSlice";
+
 import "./SwitchUs.css";
 
 const PurpleSwitch = withStyles({
@@ -32,13 +33,13 @@ function SwitchUs() {
     setCheckState(e.target.checked);
   };
 
-  //   useEffect(() => {
-  //     if (checkState) {
-  //       usaDispatch(setIsUsa({ isUsa: true }));
-  //     } else {
-  //       usaDispatch(setIsUsa({ isUsa: false }));
-  //     }
-  //   }, [checkState]);
+  useEffect(() => {
+    if (checkState) {
+      usaDispatch(setIsUsa({ isUsa: true }));
+    } else {
+      usaDispatch(setIsUsa({ isUsa: false }));
+    }
+  }, [checkState]);
 
   return (
     <div className="switchUs">

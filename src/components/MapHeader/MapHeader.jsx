@@ -6,23 +6,33 @@ import CardType from "../CardType/CardType";
 import numeral from "numeral";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCasesType, setCasesType } from "../../features/casesTypeSlice";
+import LoadUsTasks from "../../tasks/LoadUsTasks";
+import { selectIsUsa } from "../../features/usaSlice";
 
 function MapHeader() {
   const [update, setUpdate] = useState();
   const casesType = useSelector(selectCasesType);
   const casesTypeDispatch = useDispatch();
+  const isUsa = useSelector(selectIsUsa);
 
   const loadWorldData = new LoadWorldData();
+  const loadUsTasks = new LoadUsTasks();
 
   const loadCardData = () => {
     loadWorldData.loadWorldData(setUpdate);
   };
 
-  useEffect(() => {
-    loadCardData();
-  }, []);
+  const loadUsCard = () => {
+    loadUsTasks.loadUsCard(setUpdate);
+  };
 
-  console.log(update);
+  useEffect(() => {
+    if (!isUsa) {
+      loadCardData();
+    } else {
+      loadUsCard();
+    }
+  }, [isUsa]);
 
   return (
     <div className="mapHeader">
