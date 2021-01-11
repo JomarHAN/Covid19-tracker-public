@@ -7,6 +7,14 @@ class LoadWorldTasks {
     mapCountries = features
 
 
+    loadCountrydData = (countryCovid, setUpdate) => {
+        this.setWorldData = setUpdate
+        fetch(`https://disease.sh/v3/covid-19/countries/${countryCovid}?strict=true`)
+            .then(res => res.json())
+            .then(data => this.setWorldData(data))
+            .catch(err => console.log(err))
+    }
+
     loadWorldData = (setWorldData) => {
         this.setWorldData = setWorldData
         fetch('https://disease.sh/v3/covid-19/all')

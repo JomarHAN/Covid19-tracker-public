@@ -5,7 +5,7 @@ import { selectIsUsa } from "../../features/usaSlice";
 import numeral from "numeral";
 import { setCountryCovid, setWorldView } from "../../features/countriesSlice";
 
-function CasesMap({ region, setHover }) {
+function DeathsMap({ region, setHover }) {
   const isUsa = useSelector(selectIsUsa);
   const countryDispatch = useDispatch();
 
@@ -36,7 +36,7 @@ function CasesMap({ region, setHover }) {
           )}</strong></p>
             `);
     }
-    layer.setStyle({ fillColor: country.properties.colorCases });
+    layer.setStyle({ fillColor: country.properties.colorDeaths });
     layer.on({
       mouseover: highlightFeature,
       mouseout: resetHighlight,
@@ -60,7 +60,7 @@ function CasesMap({ region, setHover }) {
 
     layer.setStyle({
       weight: 3,
-      color: "green",
+      color: "yellow",
       dashArray: "",
       fillOpacity: 1,
     });
@@ -68,7 +68,7 @@ function CasesMap({ region, setHover }) {
 
   const resetHighlight = (e) => {
     e.target.setStyle({
-      fillColor: `${e.target.feature.properties.colorCases}`,
+      fillColor: `${e.target.feature.properties.colorDeaths}`,
       fillOpacity: 1,
       color: "black",
       dashArray: "",
@@ -114,4 +114,4 @@ function CasesMap({ region, setHover }) {
   );
 }
 
-export default CasesMap;
+export default DeathsMap;

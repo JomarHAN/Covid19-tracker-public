@@ -8,18 +8,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCasesType, setCasesType } from "../../features/casesTypeSlice";
 import LoadUsTasks from "../../tasks/LoadUsTasks";
 import { selectIsUsa } from "../../features/usaSlice";
+import { selectCountryCovid } from "../../features/countriesSlice";
 
 function MapHeader() {
   const [update, setUpdate] = useState();
   const casesType = useSelector(selectCasesType);
   const casesTypeDispatch = useDispatch();
   const isUsa = useSelector(selectIsUsa);
+  const countryCovid = useSelector(selectCountryCovid);
 
   const loadWorldData = new LoadWorldData();
   const loadUsTasks = new LoadUsTasks();
 
   const loadCardData = () => {
-    loadWorldData.loadWorldData(setUpdate);
+    if (countryCovid === "Worldwide") {
+      loadWorldData.loadWorldData(setUpdate);
+    } else {
+      loadWorldData.loadCountryData(countryCovid, setUpdate);
+    }
   };
 
   const loadUsCard = () => {
@@ -32,7 +38,7 @@ function MapHeader() {
     } else {
       loadUsCard();
     }
-  }, [isUsa]);
+  }, [countryCovid, isUsa]);
 
   return (
     <div className="mapHeader">
