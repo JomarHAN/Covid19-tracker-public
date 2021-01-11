@@ -1,8 +1,9 @@
 import React from "react";
 import "./WorldMap.css";
+import { GeoJSON } from "react-leaflet";
 
-function WorldMap() {
-  return <div className="worldMap">I am World Map</div>;
+function WorldMap({ countries }) {
+  return <GeoJSON data={countries} />;
 }
 
 export default WorldMap;

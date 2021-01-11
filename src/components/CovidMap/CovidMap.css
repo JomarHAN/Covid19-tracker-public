@@ -5,3 +5,12 @@
     height: 100%;
     box-sizing: border-box;
 }
+
+.covidMap__content{
+    height: 75%;
+}
+
+
+.leaflet-container{
+    background-color: rgb(127, 229, 255)!important;
+}
