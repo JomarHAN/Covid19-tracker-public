@@ -1,0 +1,35 @@
+.leaflet-popup-content{
+    width: 170px!important;
+    object-fit: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leaflet-popup-content img{
+    width: 70%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.leaflet-popup-content p{
+    align-self: flex-start;
+    margin: 0!important;
+    font-size: 15px;
+}
+
+.worldMap__global{
+    position: absolute!important;
+    right: 20px!important;
+    bottom: 20px!important;
+    font-size: 50px!important;
+    padding: 5px!important;
+    background-color: whitesmoke!important;
+    border-radius: 50px!important;
+    z-index: 999;
+}
+
+.leaflet-div-icon{
+    background: transparent!important;
+    border: none!important;
+}
