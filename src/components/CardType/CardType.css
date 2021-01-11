@@ -1,0 +1,83 @@
+.cardType{
+    flex: 0.3;
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: 0.2s ease-in-out;
+}
+
+.cardType:hover{
+    transform: translate(-4px , -4px);
+    box-shadow:  1px 1px 3px 0;
+}
+
+.cardType--selected{
+    box-sizing: border-box;
+    border-top: 5px solid rgb(0, 102, 255);
+}
+
+.cardType p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: red;
+    font-weight: 600!important;
+    font-size: 25px!important;
+}
+
+.cardType small strong{
+    font-size: 13px!important;
+    font-weight: 700!important;
+}
+
+.cardType-green{
+    color: green;
+}
+
+.cardType-purple{
+    color: purple;
+}
+
+@media only screen and (max-width: 1024px){
+    .cardType{
+        padding: 5px 0 5px 15px;
+        margin: 2px 0;
+    }
+
+    .cardType p{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: red;
+        font-weight: 600!important;
+        font-size: 16px!important;
+    }
+
+    .cardType h3{
+        font-size: 18px;
+    }
+
+    .cardType small strong{
+        font-size: 13px!important;
+        font-weight: 700!important;
+    }
+}
+
+@media only screen and (max-width: 375px){
+
+    .cardType p{
+        margin-top: 5px;
+        margin-bottom: 0px;
+        color: red;
+        font-weight: 500!important;
+        font-size: 10px!important;
+    }
+
+    .cardType h3{
+        font-size: 12px;
+    }
+
+    .cardType small strong,.cardType small{
+        font-size: 10px!important;
+    }
+}

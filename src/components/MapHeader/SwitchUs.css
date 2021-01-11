@@ -1,0 +1,14 @@
+.switchUs{
+    border: 1px solid lightgray;
+    padding: 5px;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 375px){
+    .switchUs{
+        padding: 0;
+        border: none;
+        background-color: transparent;
+    }
+}

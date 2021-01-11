@@ -1,0 +1,20 @@
+.mapHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 20%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.mapHeader__titleAndSwitch{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mapHeader__cardsGroup{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

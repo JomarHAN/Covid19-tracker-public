@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import casesTypeReducer from '../features/casesTypeSlice';
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    casesType: casesTypeReducer,
   },
 });
