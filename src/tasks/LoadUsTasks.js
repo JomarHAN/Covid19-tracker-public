@@ -1,6 +1,7 @@
 class LoadUsTasks {
     setUpdate = null
 
+
     loadListTable = (setListRegion) => {
         fetch('https://disease.sh/v3/covid-19/states')
             .then(res => res.json())
