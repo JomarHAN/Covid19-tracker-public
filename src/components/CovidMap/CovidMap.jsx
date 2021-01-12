@@ -13,6 +13,7 @@ import WorldMap from "../WorldMap/WorldMap";
 import "./CovidMap.css";
 import LoadWorldTasks from "../../tasks/LoadWorldTasks";
 import "leaflet/dist/leaflet.css";
+import Legend from "../Legend/Legend";
 
 function CovidMap() {
   const [countries, setCountries] = useState([]);
@@ -46,6 +47,7 @@ function CovidMap() {
           </MapContainer>
         </div>
       )}
+      <Legend />
     </div>
   );
 }

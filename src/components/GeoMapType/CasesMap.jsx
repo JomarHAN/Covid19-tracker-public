@@ -46,6 +46,12 @@ function CasesMap({ region, setHover }) {
   const highlightFeature = (e) => {
     const layer = e.target;
     const regionDetail = layer.feature.properties;
+    e.target.setStyle({
+      weight: 3,
+      color: "green",
+      dashArray: "",
+      fillOpacity: 1,
+    });
 
     if (isUsa) {
       setHover({
@@ -57,13 +63,6 @@ function CasesMap({ region, setHover }) {
     } else {
       setHover(layer.feature.properties.country);
     }
-
-    layer.setStyle({
-      weight: 3,
-      color: "green",
-      dashArray: "",
-      fillOpacity: 1,
-    });
   };
 
   const resetHighlight = (e) => {
