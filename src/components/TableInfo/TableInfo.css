@@ -1,3 +1,88 @@
-.tableInfo{
+.tableInfo__table{
     flex: 0.3;
+    padding: 0px 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    object-fit: contain;
+    position: relative;
 }
+
+.tableInfo__listRegion{
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: content-box;
+    height: 80%;
+    overflow: hidden;
+}
+
+.tableInfo__charts{
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    box-sizing: content-box;
+    height: 20%;
+}
+
+.tableInfo__responsiveBtn{
+    position: absolute;
+    top: 30%;
+    height: 60px;
+    width: 20px;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    transform: translateX(-100%);
+    box-shadow: -1px 0 7px 0;
+    visibility: hidden;
+}
+
+.tableInfo__btnOn{
+    transition: 0.4s ease-in-out!important;
+    height: 100%!important;
+}
+
+.tableInfo__btnOff{
+    transform: rotate(180deg);
+}
+
+.tableInfo__responsiveBtn .MuiIconButton-root{
+    height: 100%;
+}
+
+@media only screen and (max-width: 768px){
+    .tableInfo__table{
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        background-color: whitesmoke;
+        height: 100vh;
+        width: 350px;
+        box-shadow: -1px 0 7px 0 ;
+        padding: 0;
+        transition: 0.4s ease-in-out;
+    }
+
+    .tableInfo__tableResponsive{
+        transform: translateX(100%);
+    }
+
+    .tableInfo__responsiveBtn{
+        visibility: visible;
+    }
+}
+
+@media only screen and (max-width: 375px){
+    .tableInfo__listRegion h1{
+        font-size: 18px;
+    }
+}
+
+

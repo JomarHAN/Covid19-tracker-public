@@ -5,6 +5,23 @@ class LoadWorldTasks {
     setWorldData = null
     setCountries = null
     mapCountries = features
+    setListRegion = null
+
+    loadListRegion = (setListRegion) => {
+        this.setListRegion = setListRegion
+        fetch('https://disease.sh/v3/covid-19/countries')
+            .then(res => res.json())
+            .then(data => this.setListRegion(this.#sortList(data)))
+    }
+
+    #sortList = (data) => {
+        const listSorted = [...data]
+        listSorted.sort((a, b) => {
+            return a.cases > b.cases ? -1 : 1
+        })
+
+        return listSorted
+    }
 
     loadCountryData = (countryCovid, setWorldData) => {
         this.setWorldData = setWorldData
