@@ -1,7 +1,7 @@
 import { IconButton } from "@material-ui/core";
 import { Explore } from "@material-ui/icons";
 import React, { useState } from "react";
-import { Marker, useMap } from "react-leaflet";
+import { MapContainer, Marker, useMap } from "react-leaflet";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCountryCovid,
@@ -50,7 +50,11 @@ function WorldMap({ countries }) {
   };
 
   return (
-    <div className="worldMap">
+    <MapContainer
+      style={{ height: "100%" }}
+      center={worldLatLng}
+      zoom={worldZoom}
+    >
       <FlyTo />
       {countries.map((region) => {
         if (casesType === "cases") {
@@ -85,7 +89,7 @@ function WorldMap({ countries }) {
           Scope on: <strong>{hover}</strong>
         </p>
       </div>
-    </div>
+    </MapContainer>
   );
 }
 

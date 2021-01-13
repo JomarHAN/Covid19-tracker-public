@@ -5,7 +5,11 @@ import {
   selectWorldLatLng,
   selectWorldZoom,
 } from "../../features/countriesSlice";
-import { selectIsUsa } from "../../features/usaSlice";
+import {
+  selectIsUsa,
+  selectUsCenter,
+  selectUsZoom,
+} from "../../features/usaSlice";
 import Loading from "../Loading/Loading";
 import MapHeader from "../MapHeader/MapHeader";
 import UsMap from "../UsMap/UsMap";
@@ -14,22 +18,35 @@ import "./CovidMap.css";
 import LoadWorldTasks from "../../tasks/LoadWorldTasks";
 import "leaflet/dist/leaflet.css";
 import Legend from "../Legend/Legend";
+import LoadUsTasks from "../../tasks/LoadUsTasks";
 
 function CovidMap() {
   const [countries, setCountries] = useState([]);
+  const [usStates, setUsStates] = useState([]);
   const isUsa = useSelector(selectIsUsa);
   const worldLatLng = useSelector(selectWorldLatLng);
   const worldZoom = useSelector(selectWorldZoom);
+  const usCenter = useSelector(selectUsCenter);
+  const usZoom = useSelector(selectUsZoom);
 
   const loadWorldTasks = new LoadWorldTasks();
+  const loadUsTasks = new LoadUsTasks();
+
+  const usMap = () => {
+    loadUsTasks.loadUsMap(setUsStates);
+  };
 
   const worldMap = () => {
     loadWorldTasks.load(setCountries);
   };
 
   useEffect(() => {
-    worldMap();
-  }, []);
+    if (!isUsa) {
+      worldMap();
+    } else {
+      usMap();
+    }
+  }, [isUsa]);
 
   return (
     <div className="covidMap">
@@ -38,13 +55,15 @@ function CovidMap() {
         <Loading />
       ) : (
         <div className="covidMap__content">
-          <MapContainer
-            style={{ height: "100%" }}
-            center={worldLatLng}
-            zoom={worldZoom}
-          >
-            {!isUsa ? <WorldMap countries={countries} /> : <UsMap />}
-          </MapContainer>
+          {!isUsa ? (
+            <WorldMap
+              worldLatLng={worldLatLng}
+              worldZoom={worldZoom}
+              countries={countries}
+            />
+          ) : (
+            <UsMap center={usCenter} zoom={usZoom} usStates={usStates} />
+          )}
         </div>
       )}
       <Legend />

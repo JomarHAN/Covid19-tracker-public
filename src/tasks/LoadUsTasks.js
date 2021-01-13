@@ -1,6 +1,12 @@
+import { features } from '../dataLatLng/us-states.json'
+
 class LoadUsTasks {
     setUpdate = null
+    setUsStates = null
 
+    loadUsMap = (setUsStates) => {
+        setUsStates(features)
+    }
 
     loadListTable = (setListRegion) => {
         fetch('https://disease.sh/v3/covid-19/states')
