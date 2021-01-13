@@ -14,3 +14,15 @@
 .leaflet-container{
     background-color: rgb(127, 229, 255)!important;
 }
+
+@media only screen and (max-width: 768px){
+    .covidMap{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        padding: 10px;
+    }
+}

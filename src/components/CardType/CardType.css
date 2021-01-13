@@ -31,6 +31,10 @@
     font-weight: 700!important;
 }
 
+.cardType small strong,.cardType small{
+    color: rgb(141, 140, 140);
+}
+
 .cardType-green{
     color: green;
 }
@@ -41,7 +45,7 @@
 
 @media only screen and (max-width: 1024px){
     .cardType{
-        padding: 5px 0 5px 15px;
+        padding: 5px 0 5px 10px;
         margin: 2px 0;
     }
 
@@ -63,21 +67,21 @@
     }
 }
 
-@media only screen and (max-width: 375px){
+@media only screen and (max-width: 425px){
 
     .cardType p{
         margin-top: 5px;
         margin-bottom: 0px;
         color: red;
         font-weight: 500!important;
-        font-size: 10px!important;
+        font-size: 12px!important;
     }
 
     .cardType h3{
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .cardType small strong,.cardType small{
-        font-size: 10px!important;
+        font-size: 12px!important;
     }
 }

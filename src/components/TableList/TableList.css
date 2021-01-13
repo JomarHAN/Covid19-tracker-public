@@ -33,6 +33,5 @@ table{
 @media only screen and (max-width: 375px){
     .tableList{
         margin-top: 10px;
-        height: 320px;
     }
 }
