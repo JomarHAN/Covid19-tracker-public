@@ -3,11 +3,12 @@ import "./TableInfo.css";
 import LoadWorldTasks from "../../tasks/LoadWorldTasks";
 import { useSelector } from "react-redux";
 import LoadUsaStasks from "../../tasks/LoadUsTasks";
-import { ArrowForwardIos, TableChart } from "@material-ui/icons";
+import { ArrowForwardIos } from "@material-ui/icons";
 import { IconButton } from "@material-ui/core";
 import Loading from "../Loading/Loading";
 import TableList from "../TableList/TableList";
 import { selectIsUsa } from "../../features/usaSlice";
+import TableChart from "../TableChart/TableChart";
 
 function TableInfo() {
   const [listRegion, setListRegion] = useState([]);

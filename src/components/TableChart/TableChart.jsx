@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { useSelector } from "react-redux";
-import "./AppCharts.css";
-import ChartDataTasks from "./tasks/ChartDataTasks";
+import ChartDataTasks from "../../tasks/CharDataTasks";
 import numeral from "numeral";
-import { legendItems } from "./legendsData/LegendItems";
+import { legendItems } from "../../entities/LegendItems";
 
-import Loading from "./Loading";
+import Loading from "../Loading/Loading";
 import { selectIsUsa } from "../../features/usaSlice";
 import { selectCasesType } from "../../features/casesTypeSlice";
 import { selectCountryCovid } from "../../features/countriesSlice";
